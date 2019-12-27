@@ -40,10 +40,10 @@ function is_tendermint_up() {
     curl -sSf -X POST "127.0.0.1:${1}" \
         -H 'Content-Type: application/json' \
         -d '{
-            "method": "genesis",
+            "method": "block",
             "jsonrpc": "2.0",
-            "params": [],
-            "id": "genesis"
+            "params": [1],
+            "id": "block"
         }' > /dev/null
     RET_VALUE=$?
 }
